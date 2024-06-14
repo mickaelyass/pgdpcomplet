@@ -1,0 +1,51 @@
+<body>
+     <app-header></app-header>
+    <main class="container mt-4">
+        <h2>Gestion des Salaires</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Calculer les Salaires</h3>
+                <form action="/salary/calculate" method="post">
+                    <div class="form-group">
+                        <label for="employee">Employé :</label>
+                        <input type="text" id="employee" name="employee" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="base-salary">Salaire de base :</label>
+                        <input type="number" id="base-salary" name="base-salary" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bonus">Bonus :</label>
+                        <input type="number" id="bonus" name="bonus" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="deductions">Déductions :</label>
+                        <input type="number" id="deductions" name="deductions" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculer</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Historique des Paiements</h3>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">Nom1 - Mois - Salaire Net <a href="/salary/view/1" class="btn btn-link">Voir</a></li>
+                    <li class="list-group-item">Nom2 - Mois - Salaire Net <a href="/salary/view/2" class="btn btn-link">Voir</a></li>
+                    <!-- Ajouter d'autres paiements ici -->
+                </ul>
+                <h3>Générer une Fiche de Paie</h3>
+                <form action="/salary/generate" method="post">
+                    <div class="form-group">
+                        <label for="employee-salary">Employé :</label>
+                        <input type="text" id="employee-salary" name="employee-salary" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Mois :</label>
+                        <input type="month" id="month" name="month" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Générer</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <app-footer></app-footer>
+</body>

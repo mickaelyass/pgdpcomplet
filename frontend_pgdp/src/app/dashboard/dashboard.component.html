@@ -1,0 +1,30 @@
+
+<body>
+     <app-header></app-header>
+    <main class="container mt-4">
+        <h2>Bienvenue, [Nom de l'utilisateur]!</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Statistiques Clés</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Nombre d'employés :  <span class="h4">{{profiles.length}}</span></li>
+                    <li class="list-group-item">Demandes de congé en attente : 5</li>
+                    <li class="list-group-item">Évaluations de performance à venir : 3</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+              <div class="container-fluid bg-success rounded">
+                <h3>Anniversaire</h3>
+                <div *ngFor="let employe of profiles">
+                  <p >{{employe.nom}} fete son anniversaire aujourd'huit</p>
+                </div>
+              </div>
+
+                <h3>Graphiques et Widgets</h3>
+                <div id="charts" class="border p-3">Graphiques ici</div>
+            </div>
+        </div>
+    </main>
+     <app-footer></app-footer>
+
+</body>

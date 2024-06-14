@@ -1,0 +1,17 @@
+<body>
+     <app-header></app-header>
+    <main class="container-fluid mt-4">
+        <h2>Gestion des Dossiers du Personnel</h2>
+        <div class="row">
+            <div class="col-md-11">
+                <form action="/search-employees" method="get" class="form-inline mb-3">
+                    <input type="text" class="form-control mr-2" id="search" name="search" placeholder="Rechercher un employé">
+                    <button type="submit" class="btn btn-primary">Rechercher</button>
+                </form>
+                <app-profile-list></app-profile-list>
+                <a routerLink="/addnewprofile" class="btn btn-success mt-3">Ajouter un nouvel employé</a>
+            </div>
+        </div>
+    </main>
+     <app-footer></app-footer>
+</body>

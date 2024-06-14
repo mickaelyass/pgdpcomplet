@@ -1,0 +1,41 @@
+<body>
+    <app-header></app-header>
+    <main class="container mt-4">
+        <h2>Gestion des Congés</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Calendrier des Congés</h3>
+                <div id="calendar" class="border p-3 mb-3">Calendrier ici</div>
+            </div>
+            <div class="col-md-6">
+                <h3>Demandes de Congé en Attente</h3>
+                <ul class="list-group mb-3">
+                  <li class="list-group-item">Nom1 - Dates <a href="/leave/approve/1" class="btn btn-success btn-sm">Approuver</a> <a href="/leave/reject/1" class="btn btn-danger btn-sm">Refuser</a></li>
+                    <li class="list-group-item">Nom2 - Dates <a href="/leave/approve/2" class="btn btn-success btn-sm">Approuver</a> <a href="/leave/reject/2" class="btn btn-danger btn-sm">Refuser</a></li>
+                    <!-- Ajouter d'autres demandes ici -->
+                </ul>
+                <h3>Soumettre une Demande de Congé</h3>
+                <form action="/leave/request" method="post">
+                    <div class="form-group">
+                        <label for="employee">Employé :</label>
+                        <input type="text" id="employee" name="employee" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="start">Date de début :</label>
+                        <input type="date" id="start" name="start" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end">Date de fin :</label>
+                        <input type="date" id="end" name="end" class="form-control" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="motif">Motif:</label>
+                       <textarea class="form-control" id="motif" rows="3" placeholder="Entrez le motif de votre demande de congé"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Soumettre</button>
+                </form>
+            </div>
+        </div>
+    </main>
+  <app-footer></app-footer>
+</body>

@@ -1,0 +1,44 @@
+<body class="container_fluid">
+
+    <div *ngIf="profiles">
+      <h2>Listes du personnel</h2>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Matricules</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Date de naissance</th>
+          <th>Date  de prise de fonction</th>
+          <th>Service actuel</th>
+          <th>Fonction</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let profile of profiles">
+          <td>{{ profile.id }}</td>
+          <td>{{ profile.matricule }} </td>
+          <td>{{ profile.nom }}</td>
+          <td>{{ profile.prenoms }}</td>
+          <td>{{ profile.date_nat | date:'dd/MM/yyyy' }}</td>
+          <td>{{ profile.date_premier_prise_service | date:'dd/MM/yyyy'}} </td>
+          <td>{{ profile.poste_actuel_service}}</td>
+          <td>{{ profile.fonction}}</td>
+          <td><button class="btb ">
+            <i class="bi bi-eye"></i>
+          </button></td>
+          <td><button class="btb text-danger">
+            <i class="bi bi-trash"></i>
+          </button></td>
+          <td><button class="btb btn-danger">
+          <i class="bi bi-pencil"></i>
+        </button></td>
+          </tr>
+        </tbody>
+
+      </table>
+      <h1></h1>
+    </div>
+</body>
+
