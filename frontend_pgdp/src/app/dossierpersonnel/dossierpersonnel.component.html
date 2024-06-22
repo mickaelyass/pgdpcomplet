@@ -8,10 +8,56 @@
                     <input type="text" class="form-control mr-2" id="search" name="search" placeholder="Rechercher un employé">
                     <button type="submit" class="btn btn-primary">Rechercher</button>
                 </form>
-                <app-profile-list></app-profile-list>
+                               <section class="container_fluid">
+
+                    <div *ngIf="profiles">
+                      <h2>Listes du personnel</h2>
+                      <table class="table table-striped">
+                        <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Matricules</th>
+                          <th>Nom</th>
+                          <th>Prenom</th>
+                          <th>Date de naissance</th>
+                          <th>Date  de prise de fonction</th>
+                          <th>Service actuel</th>
+                          <th>Fonction</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let profile of profiles;let index=index"  >
+                          <td>{{ profile.id }}</td>
+                          <td>{{ profile.matricule }} </td>
+                          <td>{{ profile.nom }}</td>
+                          <td>{{ profile.prenoms }}</td>
+                          <td>{{ profile.date_nat | date:'dd/MM/yyyy' }}</td>
+                          <td>{{ profile.date_premier_prise_service | date:'dd/MM/yyyy'}} </td>
+                          <td>{{ profile.poste_actuel_service}}</td>
+                          <td>{{ profile.fonction}}</td>
+
+                          <td><button class="btb " (click)="onwatchprofil(profile.id)" >
+                            <i class="bi bi-eye"></i>
+                          </button></td>
+
+                          <td><a  class="btb text-danger" (click)="ondelete(profile.id)" >
+                            <i class="bi bi-trash"></i>
+                          </a></td>
+
+                          <td><a class="btb btn-danger" (click)="editProfile(profile.id)">
+                          <i class="bi bi-pencil"></i>
+                        </a></td>
+                          </tr>
+                        </tbody>
+
+                      </table>
+
+                    </div>
+                </section>
                 <a routerLink="/addnewprofile" class="btn btn-success mt-3">Ajouter un nouvel employé</a>
             </div>
         </div>
+
     </main>
      <app-footer></app-footer>
 </body>

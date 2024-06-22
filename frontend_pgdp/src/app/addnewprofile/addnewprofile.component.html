@@ -1,149 +1,186 @@
+
 <app-header></app-header>
 <body>
 <div class="container mt-5 ">
-  <h1>Formulaire d'ajout du personnel</h1>
+  <h1 class="my-5 text-center">Formulaire d'ajout du personnel</h1>
 
-  <form  [formGroup]="personnelForm"  >
-    <div class="container ">
-      <div class="col-md-8">
-        <div class="mb-3">
+  <form class="col-sm-7 mx-auto" [formGroup]="personnelForm" (ngSubmit)="onSubmit()" >
+
+      <div  id="identification" >
+        <h2 class="my-5 text-center">Informations d'identifications</h2>
+            <div class="mb-3">
           <label for="matricule" class="form-label">Matricule:</label>
-          <input type="text" class="form-control" id="matricule" formControlName="matricule" required>
+          <input type="text" class="form-control" id="matricule" formControlName="matricule" >
         </div>
+
         <div class="mb-3">
           <label for="cnss" class="form-label">CNSS:</label>
-          <input type="text" class="form-control" id="cnss" formControlName="cnss" required>
+          <input type="text" class="form-control" id="cnss" formControlName="cnss" >
         </div>
+
         <div class="mb-3">
           <label for="nom" class="form-label">Nom:</label>
-          <input type="text" class="form-control" id="nom" formControlName="nom" required>
+          <input type="text" class="form-control" id="nom" formControlName="nom" >
         </div>
+
         <div class="mb-3">
           <label for="prenoms" class="form-label">Prénoms:</label>
-          <input type="text" class="form-control" id="prenoms" formControlName="prenoms" required>
+          <input type="text" class="form-control" id="prenoms" formControlName="prenoms">
         </div>
+
         <div class="mb-3">
           <label for="nom_epoux" class="form-label">Nom de l'époux:</label>
           <input type="text" class="form-control" id="nom_epoux" formControlName="nom_conjoint">
         </div>
+
         <div class="mb-3">
           <label for="sexe" class="form-label">Sexe:</label>
-          <select class="form-select" id="sexe" formControlName="sexe" required>
+          <select class="form-select" id="sexe" formControlName="sexe" >
             <option value="M">Masculin</option>
             <option value="F">Féminin</option>
           </select>
         </div>
+
         <div class="mb-3">
           <label for="date_nat" class="form-label">Date de naissance:</label>
-          <input type="date" class="form-control" id="date_nat" formControlName="date_nat" required>
+          <input type="date" class="form-control" id="date_nat" formControlName="date_nat" >
         </div>
+
         <div class="mb-3">
           <label for="tranche_age" class="form-label">Tranche d'âge:</label>
-          <input type="number" class="form-control" id="tranche_age" formControlName="tranche_age">
+          <input type="text" class="form-control" id="tranche_age" formControlName="tranche_age">
         </div>
+
         <div class="mb-3">
           <label for="lieux_naissance" class="form-label">Lieux de naissance:</label>
           <input type="text" class="form-control" id="lieux_naissance" formControlName="lieux_naissance">
         </div>
+
         <div class="mb-3">
-          <label for="sm" class="form-label">Situation Matrimoniale:</label>
+          <label for="situat_matri" class="form-label">Situation Matrimoniale:</label>
           <select class="form-select" id="situat_matri" formControlName="situat_matri">
             <option value="Célibataire">Célibataire</option>
             <option value="Marié(e)">Marié(e)</option>
             <option value="Veuf/Veuve">Veuf/Veuve</option>
             <option value="Divorcé(e)">Divorcé(e)</option>
           </select>
-
         </div>
+
         <div class="mb-3">
           <label for="date_mariage" class="form-label">Date de mariage:</label>
           <input type="date" class="form-control" id="date_mariage" formControlName="date_mariage">
         </div>
+
         <div class="mb-3">
           <label for="nbr_enfants" class="form-label">N° enfants:</label>
           <input type="number" class="form-control" id="nbr_enfants" formControlName="nbr_enfants">
         </div>
+        <a href="/addnewprofile#professionnelle" class="btn btn-success">Continuer</a>
+
+     </div>
+
+      <div id="professionnelle" >
+        <h2 class="my-5 text-center">Informations professionnelles</h2>
         <div class="mb-3">
           <label for="statut" class="form-label">Statut:</label>
-          <input type="number" class="form-control" id="statut" formControlName="statut">
-
+          <input type="text" class="form-control" id="statut" formControlName="statut">
         </div>
+
         <div class="mb-3">
           <label for="corps" class="form-label">Corps:</label>
           <input type="text" class="form-control" id="corps" formControlName="corps">
         </div>
+
         <div class="mb-3">
           <label for="categorie_rat" class="form-label">Categorie_rat:</label>
           <input type="text" class="form-control" id="categorie_rat" formControlName="categorie_rat">
         </div>
+
         <div class="mb-3">
           <label for="branche_personnel" class="form-label">Branche du personnel:</label>
           <input type="text" class="form-control" id="branche_personnel" formControlName="branche_personnel">
         </div>
+
         <div class="mb-3">
           <label for="fonction" class="form-label">Fonctions:</label>
           <input type="text" class="form-control" id="fonction" formControlName="fonction">
         </div>
+
         <div class="mb-3">
           <label for="ref_nomination" class="form-label">Réf. nomination:</label>
           <input type="text" class="form-control" id="ref_nomination" formControlName="ref_nomination">
         </div>
+
         <div class="mb-3">
           <label for="date_prise_fonctions" class="form-label">Date prise de fonctions:</label>
           <input type="date" class="form-control" id="date_prise_fonctions" formControlName="date_prise_fonctions">
         </div>
+
         <div class="mb-3">
           <label for="responsabilite_particuliere" class="form-label">Responsabilité particulière:</label>
           <input type="text" class="form-control" id="responsabilite_particuliere" formControlName="responsabilite_particuliere">
         </div>
+
         <div class="mb-3">
           <label for="grade_paye" class="form-label">Grade paye:</label>
           <input type="text" class="form-control" id="grade_paye" formControlName="grade_paye">
         </div>
+
         <div class="mb-3">
           <label for="indice_paye" class="form-label">Indice paye:</label>
-          <input type="number" class="form-control" id="indice_paye" formControlName="indice_paye">
+          <input type="text" class="form-control" id="indice_paye" formControlName="indice_paye">
         </div>
+
         <div class="mb-3">
           <label for="date_premier_prise_service" class="form-label">Date de premier prise de service:</label>
           <input type="date" class="form-control" id="date_premier_prise_service" formControlName="date_premier_prise_service">
         </div>
+
         <div class="mb-3">
           <label for="date_depart_retraite" class="form-label">Date de départ à la retraite:</label>
           <input type="date" class="form-control" id="date_depart_retraite" formControlName="date_depart_retraite">
         </div>
+
         <div class="mb-3">
           <label for="date_prise_service_departement" class="form-label">Date de prise de service dans le département:</label>
           <input type="date" class="form-control" id="date_prise_service_departement" formControlName="date_prise_service_departement">
         </div>
+
         <div class="mb-3">
           <label for="reference_acte_date_prise_service_poste_actuel" class="form-label">Référence acte date de prise de service poste actuel:</label>
           <input type="text" class="form-control" id="reference_acte_date_prise_service_poste_actuel" formControlName="reference_acte_date_prise_service_poste_actuel">
         </div>
+
         <div class="mb-3">
           <label for="poste_actuel_service" class="form-label">Poste actuel service:</label>
           <input type="text" class="form-control" id="poste_actuel_service" formControlName="poste_actuel_service">
         </div>
+
         <div class="mb-3">
           <label for="type_structure" class="form-label">Type de structure:</label>
           <input type="text" class="form-control" id="type_structure" formControlName="type_structure">
         </div>
+
         <div class="mb-3">
           <label for="commune" class="form-label">Commune:</label>
           <input type="text" class="form-control" id="commune" formControlName="commune">
         </div>
+
         <div class="mb-3">
           <label for="arrondissement" class="form-label">Arrondissement:</label>
           <input type="text" class="form-control" id="arrondissement" formControlName="arrondissement">
         </div>
+
         <div class="mb-3">
           <label for="zone_sanitaire" class="form-label">Zone sanitaire:</label>
           <input type="text" class="form-control" id="zone_sanitaire" formControlName="zone_sanitaire">
         </div>
+
         <div class="mb-3">
           <label for="poste_specifique" class="form-label">Poste spécifique:</label>
           <input type="text" class="form-control" id="poste_specifique" formControlName="poste_specifique">
         </div>
+
         <div class="mb-3">
           <label for="etat_depart" class="form-label">Etat (départ):</label>
           <select class="form-select" id="etat_depart" formControlName="etat_depart">
@@ -154,46 +191,68 @@
             <option value="Démis(e)">Démis(e)</option>
           </select>
         </div>
+
         <div class="mb-3">
           <label for="poste_anterieurs" class="form-label">Poste antérieurs:</label>
-          <textarea class="form-control" id="poste_anterieurs" formControlName="poste_anterieurs" rows="3"></textarea>
+          <textarea type="text" class="form-control" id="poste_anterieurs" formControlName="poste_anterieurs" rows="3"></textarea>
         </div>
+         <a href="/addnewprofile#bancaire_contact" class="btn btn-success" >Continuer</a>
+
+      </div>
+
+      <div id="bancaire_contact">
+        <h2 class="my-5 text-center">Infonmations bancaires et contacts</h2>
+         <div class="mb-3">
+            <label for="rib" class="form-label">RIB:</label>
+            <input type="text" class="form-control" id="rib" formControlName="rib">
+          </div>
+
+          <div class="mb-3">
+            <label for="mtn" class="form-label">MTN:</label>
+            <input type="text" class="form-control" id="mtn" formControlName="mtn">
+          </div>
+
+          <div class="mb-3">
+            <label for="celtics" class="form-label">Celtics:</label>
+            <input type="text" class="form-control" id="celtics" formControlName="celtics">
+          </div>
+
+          <div class="mb-3">
+            <label for="libercom" class="form-label">Libercom:</label>
+            <input type="text" class="form-control" id="libercom" formControlName="libercom">
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+          </div>
+         <a href="/addnewprofile#complementaire" class="btn btn-success">Continuer</a>
+
+      </div>
+
+      <div id="complementaire">
+        <h2 class="my-5 text-center">Informations complémentaires</h2>
         <div class="mb-3">
           <label for="autres_diplome" class="form-label">Autres diplôme:</label>
           <input type="text" class="form-control" id="autres_diplome" formControlName="autres_diplome">
         </div>
-        <div class="mb-3">
-          <label for="rib" class="form-label">RIB:</label>
-          <input type="text" class="form-control" id="rib" formControlName="rib">
-        </div>
-        <div class="mb-3">
-          <label for="mtn" class="form-label">MTN:</label>
-          <input type="number" class="form-control" id="mtn" formControlName="mtn">
-        </div>
-        <div class="mb-3">
-          <label for="celtics" class="form-label">Celtics:</label>
-          <input type="text" class="form-control" id="celtics" formControlName="celtics">
-        </div>
-        <div class="mb-3">
-          <label for="libercom" class="form-label">Libercom:</label>
-          <input type="text" class="form-control" id="libercom" formControlName="libercom">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" formControlName="email">
-        </div>
+
+
         <div class="mb-3">
           <label for="observation_particuliere" class="form-label">Observation particulière:</label>
           <textarea class="form-control" id="observation_particuliere" formControlName="observation_particuliere" rows="3"></textarea>
         </div>
+
         <div class="mb-3">
           <label for="distinction" class="form-label">Distinction:</label>
           <input type="text" class="form-control" id="distinction" formControlName="distinction">
         </div>
+
         <div class="mb-3">
           <label for="reference_distinction" class="form-label">Référence distinction:</label>
           <input type="text" class="form-control" id="reference_distinction" formControlName="reference_distinction">
         </div>
+
         <div class="mb-3">
           <label for="detail_distinction" class="form-label">Détail distinction:</label>
           <textarea class="form-control" id="detail_distinction" formControlName="detail_distinction" rows="3"></textarea>
@@ -210,14 +269,18 @@
           <label for="nature_sanction" class="form-label">Nature de la sanction:</label>
           <input type="text" class="form-control" id="nature_sanction" formControlName="nature_sanction">
         </div>
-        <button (click)="onSubmit()"  type="submit" class="btn btn-primary">Ajouter nouveau profile</button>
-       </div>
-     <div>
-       <h1  *ngIf="donnee" class="text-bg-success">Formulaire soumis</h1>
-     </div>
-    </div>
 
+    </div>
+        <button type="submit" class="my-5 btn btn-primary">
+  <ng-container *ngIf="isUpdateMode; else addMode">
+    Mettre à jour le profil
+  </ng-container>
+  <ng-template #addMode>
+    Ajouter nouveau profil
+  </ng-template>
+      </button>
   </form>
+       <p > {{donnee | json}}   </p>
 </div>
 </body>
 <app-footer></app-footer>

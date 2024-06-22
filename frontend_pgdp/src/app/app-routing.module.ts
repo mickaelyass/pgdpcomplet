@@ -6,8 +6,8 @@ import { DossierpersonnelComponent } from './dossierpersonnel/dossierpersonnel.c
 import { ConnexionComponent } from './connexion/connexion.component';
 import { CongesComponent } from './conges/conges.component';
 import {ProfilComponent} from "./profil/profil.component";
-import { ProfileListComponent } from './profile-list/profile-list.component';
 import { AddnewprofileComponent } from './addnewprofile/addnewprofile.component';
+import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
 
 const routes: Routes = [
     {path:'connexion',component:ConnexionComponent},
@@ -17,8 +17,10 @@ const routes: Routes = [
     {path:"dossierpersonnel",component:DossierpersonnelComponent},
     {path:"conges",component:CongesComponent},
     {path:"profil",component: ProfilComponent},
-    {path:"addnewprofile",component:AddnewprofileComponent}
-
+    {path:"addnewprofile",component:AddnewprofileComponent},
+   { path: 'edit-profile/:id', component: AddnewprofileComponent },
+   { path: 'voir-profile/:id', component: ProfilComponent},
+   { path: 'delete-profile/:id', component: DeleteProfileComponent},
   ];
 
 @NgModule({

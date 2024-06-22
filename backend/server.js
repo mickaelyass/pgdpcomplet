@@ -44,22 +44,24 @@ app.get('/api/profiles/:id', async (req, res) => {
 });
 
 // Create a new profile
+
+
 app.post('/api/profiles', async (req, res) => {
   const {
-    matricule, cnss, nom, prenoms, nom_conjoint, sexe, date_nat, tranche_age,
-    lieux_naissance, situat_matri, date_mariage, nbr_enfants, statut, corps,
-    categorie_rat, branche_personnel, fonction, ref_nomination, date_prise_fonctions,
-    responsabilite_particuliere, grade_paye, indice_paye, date_premier_prise_service,
-    date_depart_retraite, date_prise_service_departement, reference_acte_date_prise_service_poste_actuel,
-    poste_actuel_service, type_structure, commune, arrondissement, zone_sanitaire,
-    poste_specifique, etat_depart, poste_anterieurs, autres_diplome, rib, mtn, celtics,
-    libercom, email, observation_particuliere, distinction, reference_distinction,
+    matricule, cnss, nom, prenoms, nom_conjoint, sexe, date_nat, tranche_age, lieux_naissance,
+    situat_matri, date_mariage, nbr_enfants, statut, corps, categorie_rat, branche_personnel,
+    fonction, ref_nomination, date_prise_fonctions, responsabilite_particuliere, grade_paye,
+    indice_paye, date_premier_prise_service, date_depart_retraite, date_prise_service_departement,
+    reference_acte_date_prise_service_poste_actuel, poste_actuel_service, type_structure, commune,
+    arrondissement, zone_sanitaire, poste_specifique, etat_depart, poste_anterieurs, autres_diplome,
+    rib, mtn, celtics, libercom, email, observation_particuliere, distinction, reference_distinction,
     detail_distinction, situation_sante, sanction_punitive, nature_sanction
   } = req.body;
+  // Valider les champs requis ici si nécessaire
 
   const queryText = `
     INSERT INTO employes (
-      matricule, cnss, nom, prenoms,nom_conjoint, sexe, date_nat, tranche_age, lieux_naissance,
+      matricule, cnss, nom, prenoms, nom_conjoint, sexe, date_nat, tranche_age, lieux_naissance,
       situat_matri, date_mariage, nbr_enfants, statut, corps, categorie_rat, branche_personnel,
       fonction, ref_nomination, date_prise_fonctions, responsabilite_particuliere, grade_paye,
       indice_paye, date_premier_prise_service, date_depart_retraite, date_prise_service_departement,
@@ -67,14 +69,13 @@ app.post('/api/profiles', async (req, res) => {
       arrondissement, zone_sanitaire, poste_specifique, etat_depart, poste_anterieurs, autres_diplome,
       rib, mtn, celtics, libercom, email, observation_particuliere, distinction, reference_distinction,
       detail_distinction, situation_sante, sanction_punitive, nature_sanction
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
-       $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40,
-       $41, $42, $43, $44, $45, $46,$47)
+    ) 
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47)
     RETURNING *;
   `;
 
   const values = [
-    matricule, cnss, nom, prenoms,nom_conjoint, sexe, date_nat, tranche_age, lieux_naissance,
+    matricule, cnss, nom, prenoms, nom_conjoint, sexe, date_nat, tranche_age, lieux_naissance,
     situat_matri, date_mariage, nbr_enfants, statut, corps, categorie_rat, branche_personnel,
     fonction, ref_nomination, date_prise_fonctions, responsabilite_particuliere, grade_paye,
     indice_paye, date_premier_prise_service, date_depart_retraite, date_prise_service_departement,
@@ -88,16 +89,24 @@ app.post('/api/profiles', async (req, res) => {
     const result = await pool.query(queryText, values);
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error('Error creating profile', err);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error('Error creating profile:', err.message);
+    res.status(500).json({ error: 'Internal server error', details: err.message });
   }
 });
+
 
 // Update an existing profile
 app.put('/api/profiles/:id', async (req, res) => {
   const { id } = req.params;
   const {
-    matricule, cnss, nom, prenoms, nom_conjoint, sexe, date_nat, tranche_age, lieux_naissance, situat_matri, date_mariage, nbr_enfants, statut, corps, categorie_rat, branche_personnel, fonction, ref_nomination, date_prise_fonctions, responsabilite_particuliere, grade_paye, indice_paye, date_premier_prise_service, date_depart_retraite, date_prise_service_departement, reference_acte_date_prise_service_poste_actuel, poste_actuel_service, type_structure, commune, arrondissement, zone_sanitaire, poste_specifique, etat_depart, poste_anterieurs, autres_diplome, rib, mtn, celtics, libercom, email, observation_particuliere, distinction, reference_distinction, detail_distinction, situation_sante, sanction_punitive, nature_sanction
+    matricule, cnss, nom, prenoms, nom_conjoint, sexe, date_nat, tranche_age, lieux_naissance, situat_matri,
+    date_mariage, nbr_enfants, statut, corps, categorie_rat, branche_personnel, fonction, ref_nomination,
+    date_prise_fonctions, responsabilite_particuliere, grade_paye, indice_paye, date_premier_prise_service,
+    date_depart_retraite, date_prise_service_departement, reference_acte_date_prise_service_poste_actuel,
+    poste_actuel_service, type_structure, commune, arrondissement, zone_sanitaire, poste_specifique,
+    etat_depart, poste_anterieurs, autres_diplome, rib, mtn, celtics, libercom, email,
+    observation_particuliere, distinction, reference_distinction, detail_distinction,
+    situation_sante, sanction_punitive, nature_sanction
   } = req.body;
   try {
     const result = await pool.query(
@@ -153,5 +162,6 @@ app.delete('/api/profiles/:id', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+
 });
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Profile } from '../model/profile.model';
 
@@ -22,13 +22,13 @@ export class ProfilService {
   }
 
   // Create a new profile
-  createProfile(profile: any):Observable<any> {
-    return this.http.post<any>(this.apiUrl, profile);
+  createProfile(profile: Profile):Observable<Profile> {
+    return this.http.post<Profile>(this.apiUrl, profile);
   }
 
   // Update an existing profile
-  updateProfile(profile: Profile): Observable<Profile> {
-    return this.http.put<Profile>(`${this.apiUrl}/${profile.id}`, profile);
+  updateProfile(profilid:number,profile: Profile): Observable<Profile> {
+    return this.http.put<Profile>(`${this.apiUrl}/${profilid}`, profile);
   }
 
   // Delete a profile

@@ -12,9 +12,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfilComponent } from './profil/profil.component';
 import {FormsModule} from "@angular/forms";
-import { ProfileListComponent } from './profile-list/profile-list.component';
 import { AddnewprofileComponent } from './addnewprofile/addnewprofile.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
 
 
 
@@ -29,8 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     ProfilComponent,
-    ProfileListComponent,
     AddnewprofileComponent,
+    DeleteProfileComponent,
 
   ],
   imports: [

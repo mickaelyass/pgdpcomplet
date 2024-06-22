@@ -1,7 +1,16 @@
 <app-header></app-header>
 <body>
   <div class="container mt-5">
-    <h2>Profil de l'employé</h2>
+          <ul  class="">
+            <li>ID:{{ profili.id}}</li>
+            <li>Matricules:{{ profili.matricule }} </li>
+            <li>Nom:{{ profili.nom }}</li>
+            <li>Prenom:{{ profili.prenoms }}</li>
+            <li>Date de naissance:{{ profili.date_nat | date:'dd/MM/yyyy' }}</li>
+            <li>Date  de prise de fonction:{{ profili.date_premier_prise_service | date:'dd/MM/yyyy'}} </li>
+            <li>Service actuel:{{ profili.poste_actuel_service}}</li>
+            <li>Fonction:{{ profili.fonction}}</li>
+            </ul>
   </div>
 
 </body>
